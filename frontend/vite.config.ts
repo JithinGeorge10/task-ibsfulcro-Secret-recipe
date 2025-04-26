@@ -20,6 +20,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    target: 'esnext',  
+    target: 'es2022',  
   },
 }));

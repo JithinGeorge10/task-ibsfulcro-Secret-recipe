@@ -92,21 +92,6 @@ const fruitIngredients = await getVegetablesFromDB('fruit');
 
 
 export const ingredients: Ingredient[] = [
-  // Vegetables
-  // ...createIngredients('vegetable', [
-  //   { name: 'Tomato', emoji: '🍅' },
-  //   { name: 'Carrot', emoji: '🥕' },
-  //   { name: 'Onion', emoji: '🧅' },
-  //   { name: 'Garlic', emoji: '🧄' },
-  //   { name: 'Bell Pepper', emoji: '🫑' },
-  //   { name: 'Spinach', emoji: '🥬' },
-  //   { name: 'Broccoli', emoji: '🥦' },
-  //   { name: 'Eggplant', emoji: '🍆' },
-  //   { name: 'Potato', emoji: '🥔' },
-  //   { name: 'Cucumber', emoji: '🥒' },
-  // ]),
-
-
   ...createIngredients('vegetable', vegetableIngredients),
   ...createIngredients('protein', proteinIngredients),
   ...createIngredients('spice', spiceIngredients),
