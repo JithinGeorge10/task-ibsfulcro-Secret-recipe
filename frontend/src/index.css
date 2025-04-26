@@ -1,0 +1,127 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 38% 95%;
+    --foreground: 30 10% 25%;
+
+    --card: 35 38% 97%;
+    --card-foreground: 30 10% 25%;
+
+    --popover: 35 38% 97%;
+    --popover-foreground: 30 10% 25%;
+
+    --primary: 15 80% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 40% 88%;
+    --secondary-foreground: 30 10% 25%;
+
+    --muted: 30 30% 93%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 30 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 15 80% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 30 10% 15%;
+    --foreground: 35 20% 90%;
+
+    --card: 30 10% 20%;
+    --card-foreground: 35 20% 90%;
+
+    --popover: 30 10% 20%;
+    --popover-foreground: 35 20% 90%;
+
+    --primary: 15 80% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 14% 25%;
+    --secondary-foreground: 35 20% 90%;
+
+    --muted: 30 14% 25%;
+    --muted-foreground: 30 10% 70%;
+
+    --accent: 30 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 14% 35%;
+    --input: 30 14% 35%;
+    --ring: 15 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Game-specific styles */
+.ingredient-card {
+  @apply relative rounded-md p-3 shadow-md transition-all duration-200 hover:shadow-lg cursor-pointer bg-white;
+  transform-style: preserve-3d;
+}
+
+.ingredient-card:hover {
+  transform: translateY(-5px);
+}
+
+.ingredient-card.selected {
+  @apply ring-2 ring-recipe-accent;
+}
+
+.ingredient-card.correct {
+  @apply bg-recipe-success text-white;
+}
+
+.ingredient-card.almost {
+  @apply bg-recipe-warning;
+}
+
+.ingredient-card.wrong {
+  @apply opacity-50;
+}
+
+.drop-zone {
+  @apply border-2 border-dashed border-recipe-wood rounded-lg p-4 min-h-[150px] flex flex-wrap gap-2 items-center justify-center transition-all duration-200;
+}
+
+.drop-zone.active {
+  @apply border-recipe-accent bg-recipe-paper/50;
+}
+
+.recipe-card {
+  @apply bg-recipe-paper rounded-md shadow-md p-4 rotate-1 transform;
+}
+
+@keyframes cooking {
+  0% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-5px) rotate(-2deg); }
+  75% { transform: translateY(5px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+.cooking-animation {
+  animation: cooking 1s ease-in-out infinite;
+}
