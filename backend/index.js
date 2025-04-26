@@ -10,8 +10,6 @@ connectDB()
 app.use(morgan('dev'))
 app.use(express.json());
 
-const cors = require('cors');
-
 app.use(cors({
   origin: 'https://task-ibsfulcro-secret-recipe.vercel.app', // no trailing slash
   credentials: true, // if you need cookies or auth
