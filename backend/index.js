@@ -9,12 +9,19 @@ const app = express()
 connectDB()
 app.use(morgan('dev'))
 app.use(express.json());
+
 app.use(cors({
-    origin: process.env.FRONTEND || '*',
-    methods:['GET','POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true 
-})) 
+    origin: (origin, callback) => {
+      const allowedOrigins = ['https://task-ibsfulcro-secret-recipe.vercel.app'];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  }));
+  
 
 app.use('/api', ingredientRoutes);
 
